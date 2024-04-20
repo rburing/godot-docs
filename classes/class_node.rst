@@ -12,7 +12,7 @@ Node
 
 **Inherits:** :ref:`Object<class_Object>`
 
-**Inherited By:** :ref:`AnimationMixer<class_AnimationMixer>`, :ref:`AudioStreamPlayer<class_AudioStreamPlayer>`, :ref:`CanvasItem<class_CanvasItem>`, :ref:`CanvasLayer<class_CanvasLayer>`, :ref:`EditorFileSystem<class_EditorFileSystem>`, :ref:`EditorPlugin<class_EditorPlugin>`, :ref:`EditorResourcePreview<class_EditorResourcePreview>`, :ref:`HTTPRequest<class_HTTPRequest>`, :ref:`InstancePlaceholder<class_InstancePlaceholder>`, :ref:`MissingNode<class_MissingNode>`, :ref:`MultiplayerSpawner<class_MultiplayerSpawner>`, :ref:`MultiplayerSynchronizer<class_MultiplayerSynchronizer>`, :ref:`NavigationAgent2D<class_NavigationAgent2D>`, :ref:`NavigationAgent3D<class_NavigationAgent3D>`, :ref:`Node3D<class_Node3D>`, :ref:`ResourcePreloader<class_ResourcePreloader>`, :ref:`ShaderGlobalsOverride<class_ShaderGlobalsOverride>`, :ref:`SkeletonIK3D<class_SkeletonIK3D>`, :ref:`StatusIndicator<class_StatusIndicator>`, :ref:`Timer<class_Timer>`, :ref:`Viewport<class_Viewport>`, :ref:`WorldEnvironment<class_WorldEnvironment>`
+**Inherited By:** :ref:`AnimationMixer<class_AnimationMixer>`, :ref:`AudioStreamPlayer<class_AudioStreamPlayer>`, :ref:`CanvasItem<class_CanvasItem>`, :ref:`CanvasLayer<class_CanvasLayer>`, :ref:`EditorFileSystem<class_EditorFileSystem>`, :ref:`EditorPlugin<class_EditorPlugin>`, :ref:`EditorResourcePreview<class_EditorResourcePreview>`, :ref:`HTTPRequest<class_HTTPRequest>`, :ref:`InstancePlaceholder<class_InstancePlaceholder>`, :ref:`MissingNode<class_MissingNode>`, :ref:`MultiplayerSpawner<class_MultiplayerSpawner>`, :ref:`MultiplayerSynchronizer<class_MultiplayerSynchronizer>`, :ref:`NavigationAgent2D<class_NavigationAgent2D>`, :ref:`NavigationAgent3D<class_NavigationAgent3D>`, :ref:`Node3D<class_Node3D>`, :ref:`ResourcePreloader<class_ResourcePreloader>`, :ref:`ShaderGlobalsOverride<class_ShaderGlobalsOverride>`, :ref:`StatusIndicator<class_StatusIndicator>`, :ref:`Timer<class_Timer>`, :ref:`Viewport<class_Viewport>`, :ref:`WorldEnvironment<class_WorldEnvironment>`
 
 Base class for all scene objects.
 
@@ -1133,9 +1133,9 @@ Property Descriptions
 - |void| **set_auto_translate_mode**\ (\ value\: :ref:`AutoTranslateMode<enum_Node_AutoTranslateMode>`\ )
 - :ref:`AutoTranslateMode<enum_Node_AutoTranslateMode>` **get_auto_translate_mode**\ (\ )
 
-Defines if any text should automatically change to its translated version depending on the current locale (for nodes such as :ref:`Label<class_Label>`, :ref:`RichTextLabel<class_RichTextLabel>`, :ref:`Window<class_Window>`, etc.). See :ref:`AutoTranslateMode<enum_Node_AutoTranslateMode>`.
+Defines if any text should automatically change to its translated version depending on the current locale (for nodes such as :ref:`Label<class_Label>`, :ref:`RichTextLabel<class_RichTextLabel>`, :ref:`Window<class_Window>`, etc.). Also decides if the node's strings should be parsed for POT generation.
 
-Also decides if the node's strings should be parsed for POT generation.
+\ **Note:** For the root node, auto translate mode can also be set via :ref:`ProjectSettings.internationalization/rendering/root_node_auto_translate<class_ProjectSettings_property_internationalization/rendering/root_node_auto_translate>`.
 
 .. rst-class:: classref-item-separator
 
@@ -1986,7 +1986,7 @@ Fetches a node. The :ref:`NodePath<class_NodePath>` can either be a relative pat
 
 \ **Example:** Assume this method is called from the Character node, inside the following tree:
 
-::
+.. code:: text
 
      ┖╴root
         ┠╴Character (you are here!)
@@ -2191,9 +2191,9 @@ Returns the :ref:`SceneTree<class_SceneTree>` that contains this node. If this n
 
 Returns the tree as a :ref:`String<class_String>`. Used mainly for debugging purposes. This version displays the path relative to the current node, and is good for copy/pasting into the :ref:`get_node<class_Node_method_get_node>` function. It also can be used in game UI/UX.
 
-\ **Example output:**\ 
+May print, for example:
 
-::
+.. code:: text
 
     TheGame
     TheGame/Menu
@@ -2214,9 +2214,9 @@ Returns the tree as a :ref:`String<class_String>`. Used mainly for debugging pur
 
 Similar to :ref:`get_tree_string<class_Node_method_get_tree_string>`, this returns the tree as a :ref:`String<class_String>`. This version displays a more graphical representation similar to what is displayed in the Scene Dock. It is useful for inspecting larger trees.
 
-\ **Example output:**\ 
+May print, for example:
 
-::
+.. code:: text
 
      ┖╴TheGame
         ┠╴Menu
@@ -2561,9 +2561,9 @@ Prints all orphan nodes (nodes outside the :ref:`SceneTree<class_SceneTree>`). U
 
 Prints the node and its children to the console, recursively. The node does not have to be inside the tree. This method outputs :ref:`NodePath<class_NodePath>`\ s relative to this node, and is good for copy/pasting into :ref:`get_node<class_Node_method_get_node>`. See also :ref:`print_tree_pretty<class_Node_method_print_tree_pretty>`.
 
-\ **Example output:**\ 
+May print, for example:
 
-::
+.. code:: text
 
     .
     Menu
@@ -2584,9 +2584,9 @@ Prints the node and its children to the console, recursively. The node does not 
 
 Prints the node and its children to the console, recursively. The node does not have to be inside the tree. Similar to :ref:`print_tree<class_Node_method_print_tree>`, but the graphical representation looks like what is displayed in the editor's Scene dock. It is useful for inspecting larger trees.
 
-\ **Example output:**\ 
+May print, for example:
 
-::
+.. code:: text
 
      ┖╴TheGame
         ┠╴Menu

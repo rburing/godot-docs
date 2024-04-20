@@ -32,11 +32,11 @@ When naming a Project Settings property, use the full path to the setting includ
 Tutorials
 ---------
 
-- `3D Physics Tests Demo <https://godotengine.org/asset-library/asset/675>`__
+- `3D Physics Tests Demo <https://godotengine.org/asset-library/asset/2747>`__
 
-- `3D Platformer Demo <https://godotengine.org/asset-library/asset/125>`__
+- `3D Platformer Demo <https://godotengine.org/asset-library/asset/2748>`__
 
-- `OS Test Demo <https://godotengine.org/asset-library/asset/677>`__
+- `Operating System Testing Demo <https://godotengine.org/asset-library/asset/2789>`__
 
 .. rst-class:: classref-reftable-group
 
@@ -94,6 +94,8 @@ Properties
    | :ref:`bool<class_bool>`                           | :ref:`application/run/disable_stderr<class_ProjectSettings_property_application/run/disable_stderr>`                                                                                                       | ``false``                                                                                        |
    +---------------------------------------------------+------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+--------------------------------------------------------------------------------------------------+
    | :ref:`bool<class_bool>`                           | :ref:`application/run/disable_stdout<class_ProjectSettings_property_application/run/disable_stdout>`                                                                                                       | ``false``                                                                                        |
+   +---------------------------------------------------+------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+--------------------------------------------------------------------------------------------------+
+   | :ref:`bool<class_bool>`                           | :ref:`application/run/enable_alt_space_menu<class_ProjectSettings_property_application/run/enable_alt_space_menu>`                                                                                         | ``false``                                                                                        |
    +---------------------------------------------------+------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+--------------------------------------------------------------------------------------------------+
    | :ref:`bool<class_bool>`                           | :ref:`application/run/flush_stdout_on_print<class_ProjectSettings_property_application/run/flush_stdout_on_print>`                                                                                         | ``false``                                                                                        |
    +---------------------------------------------------+------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+--------------------------------------------------------------------------------------------------+
@@ -184,6 +186,8 @@ Properties
    | :ref:`int<class_int>`                             | :ref:`debug/gdscript/warnings/empty_file<class_ProjectSettings_property_debug/gdscript/warnings/empty_file>`                                                                                               | ``1``                                                                                            |
    +---------------------------------------------------+------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+--------------------------------------------------------------------------------------------------+
    | :ref:`bool<class_bool>`                           | :ref:`debug/gdscript/warnings/enable<class_ProjectSettings_property_debug/gdscript/warnings/enable>`                                                                                                       | ``true``                                                                                         |
+   +---------------------------------------------------+------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+--------------------------------------------------------------------------------------------------+
+   | :ref:`int<class_int>`                             | :ref:`debug/gdscript/warnings/enum_variable_without_default<class_ProjectSettings_property_debug/gdscript/warnings/enum_variable_without_default>`                                                         | ``1``                                                                                            |
    +---------------------------------------------------+------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+--------------------------------------------------------------------------------------------------+
    | :ref:`bool<class_bool>`                           | :ref:`debug/gdscript/warnings/exclude_addons<class_ProjectSettings_property_debug/gdscript/warnings/exclude_addons>`                                                                                       | ``true``                                                                                         |
    +---------------------------------------------------+------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+--------------------------------------------------------------------------------------------------+
@@ -282,6 +286,8 @@ Properties
    | :ref:`bool<class_bool>`                           | :ref:`debug/shader_language/warnings/float_comparison<class_ProjectSettings_property_debug/shader_language/warnings/float_comparison>`                                                                     | ``true``                                                                                         |
    +---------------------------------------------------+------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+--------------------------------------------------------------------------------------------------+
    | :ref:`bool<class_bool>`                           | :ref:`debug/shader_language/warnings/formatting_error<class_ProjectSettings_property_debug/shader_language/warnings/formatting_error>`                                                                     | ``true``                                                                                         |
+   +---------------------------------------------------+------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+--------------------------------------------------------------------------------------------------+
+   | :ref:`bool<class_bool>`                           | :ref:`debug/shader_language/warnings/magic_position_write<class_ProjectSettings_property_debug/shader_language/warnings/magic_position_write>`                                                             | ``true``                                                                                         |
    +---------------------------------------------------+------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+--------------------------------------------------------------------------------------------------+
    | :ref:`bool<class_bool>`                           | :ref:`debug/shader_language/warnings/treat_warnings_as_errors<class_ProjectSettings_property_debug/shader_language/warnings/treat_warnings_as_errors>`                                                     | ``false``                                                                                        |
    +---------------------------------------------------+------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+--------------------------------------------------------------------------------------------------+
@@ -732,6 +738,8 @@ Properties
    | :ref:`bool<class_bool>`                           | :ref:`internationalization/pseudolocalization/use_pseudolocalization<class_ProjectSettings_property_internationalization/pseudolocalization/use_pseudolocalization>`                                       | ``false``                                                                                        |
    +---------------------------------------------------+------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+--------------------------------------------------------------------------------------------------+
    | :ref:`bool<class_bool>`                           | :ref:`internationalization/rendering/force_right_to_left_layout_direction<class_ProjectSettings_property_internationalization/rendering/force_right_to_left_layout_direction>`                             | ``false``                                                                                        |
+   +---------------------------------------------------+------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+--------------------------------------------------------------------------------------------------+
+   | :ref:`bool<class_bool>`                           | :ref:`internationalization/rendering/root_node_auto_translate<class_ProjectSettings_property_internationalization/rendering/root_node_auto_translate>`                                                     | ``true``                                                                                         |
    +---------------------------------------------------+------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+--------------------------------------------------------------------------------------------------+
    | :ref:`int<class_int>`                             | :ref:`internationalization/rendering/root_node_layout_direction<class_ProjectSettings_property_internationalization/rendering/root_node_layout_direction>`                                                 | ``0``                                                                                            |
    +---------------------------------------------------+------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+--------------------------------------------------------------------------------------------------+
@@ -1455,6 +1463,8 @@ Properties
    +---------------------------------------------------+------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+--------------------------------------------------------------------------------------------------+
    | :ref:`int<class_int>`                             | :ref:`rendering/occlusion_culling/bvh_build_quality<class_ProjectSettings_property_rendering/occlusion_culling/bvh_build_quality>`                                                                         | ``2``                                                                                            |
    +---------------------------------------------------+------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+--------------------------------------------------------------------------------------------------+
+   | :ref:`bool<class_bool>`                           | :ref:`rendering/occlusion_culling/jitter_projection<class_ProjectSettings_property_rendering/occlusion_culling/jitter_projection>`                                                                         | ``true``                                                                                         |
+   +---------------------------------------------------+------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+--------------------------------------------------------------------------------------------------+
    | :ref:`int<class_int>`                             | :ref:`rendering/occlusion_culling/occlusion_rays_per_thread<class_ProjectSettings_property_rendering/occlusion_culling/occlusion_rays_per_thread>`                                                         | ``512``                                                                                          |
    +---------------------------------------------------+------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+--------------------------------------------------------------------------------------------------+
    | :ref:`bool<class_bool>`                           | :ref:`rendering/occlusion_culling/use_occlusion_culling<class_ProjectSettings_property_rendering/occlusion_culling/use_occlusion_culling>`                                                                 | ``false``                                                                                        |
@@ -1502,6 +1512,8 @@ Properties
    | :ref:`String<class_String>`                       | :ref:`rendering/rendering_device/driver.macos<class_ProjectSettings_property_rendering/rendering_device/driver.macos>`                                                                                     |                                                                                                  |
    +---------------------------------------------------+------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+--------------------------------------------------------------------------------------------------+
    | :ref:`String<class_String>`                       | :ref:`rendering/rendering_device/driver.windows<class_ProjectSettings_property_rendering/rendering_device/driver.windows>`                                                                                 |                                                                                                  |
+   +---------------------------------------------------+------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+--------------------------------------------------------------------------------------------------+
+   | :ref:`bool<class_bool>`                           | :ref:`rendering/rendering_device/pipeline_cache/enable<class_ProjectSettings_property_rendering/rendering_device/pipeline_cache/enable>`                                                                   | ``true``                                                                                         |
    +---------------------------------------------------+------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+--------------------------------------------------------------------------------------------------+
    | :ref:`float<class_float>`                         | :ref:`rendering/rendering_device/pipeline_cache/save_chunk_size_mb<class_ProjectSettings_property_rendering/rendering_device/pipeline_cache/save_chunk_size_mb>`                                           | ``3.0``                                                                                          |
    +---------------------------------------------------+------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+--------------------------------------------------------------------------------------------------+
@@ -1985,6 +1997,22 @@ Changes to this setting will only be applied upon restarting the application.
 If ``true``, disables printing to standard output. This is equivalent to starting the editor or project with the ``--quiet`` :doc:`command line argument <../tutorials/editor/command_line_tutorial>`. See also :ref:`application/run/disable_stderr<class_ProjectSettings_property_application/run/disable_stderr>`.
 
 Changes to this setting will only be applied upon restarting the application.
+
+.. rst-class:: classref-item-separator
+
+----
+
+.. _class_ProjectSettings_property_application/run/enable_alt_space_menu:
+
+.. rst-class:: classref-property
+
+:ref:`bool<class_bool>` **application/run/enable_alt_space_menu** = ``false``
+
+If ``true``, allows the :kbd:`Alt + Space` keys to display the window menu. This menu allows the user to perform various window management operations such as moving, resizing, or minimizing the window.
+
+\ **Note:** When the menu is displayed, project execution will pause until the menu is *fully* closed due to Windows behavior. Consider this when enabling this setting in a networked multiplayer game. The menu is only considered fully closed when an option is selected, when the user clicks outside, or when :kbd:`Escape` is pressed after bringing up the window menu *and* another key is pressed afterwards.
+
+\ **Note:** This setting is implemented only on Windows.
 
 .. rst-class:: classref-item-separator
 
@@ -2582,6 +2610,18 @@ If ``true``, enables specific GDScript warnings (see ``debug/gdscript/warnings/*
 
 ----
 
+.. _class_ProjectSettings_property_debug/gdscript/warnings/enum_variable_without_default:
+
+.. rst-class:: classref-property
+
+:ref:`int<class_int>` **debug/gdscript/warnings/enum_variable_without_default** = ``1``
+
+When set to ``warn`` or ``error``, produces a warning or an error respectively when a variable has an enum type but no explicit default value, but only if the enum does not contain ``0`` as a valid value.
+
+.. rst-class:: classref-item-separator
+
+----
+
 .. _class_ProjectSettings_property_debug/gdscript/warnings/exclude_addons:
 
 .. rst-class:: classref-property
@@ -2930,7 +2970,7 @@ When set to ``warn`` or ``error``, produces a warning or an error respectively w
 
 :ref:`int<class_int>` **debug/gdscript/warnings/unsafe_cast** = ``0``
 
-When set to ``warn`` or ``error``, produces a warning or an error respectively when performing an unsafe cast.
+When set to ``warn`` or ``error``, produces a warning or an error respectively when a :ref:`Variant<class_Variant>` value is cast to a non-Variant.
 
 .. rst-class:: classref-item-separator
 
@@ -3173,6 +3213,18 @@ When set to ``true``, produces a warning when two floating-point numbers are com
 :ref:`bool<class_bool>` **debug/shader_language/warnings/formatting_error** = ``true``
 
 When set to ``true``, produces a warning upon encountering certain formatting errors. Currently this only checks for empty statements. More formatting errors may be added over time.
+
+.. rst-class:: classref-item-separator
+
+----
+
+.. _class_ProjectSettings_property_debug/shader_language/warnings/magic_position_write:
+
+.. rst-class:: classref-property
+
+:ref:`bool<class_bool>` **debug/shader_language/warnings/magic_position_write** = ``true``
+
+When set to ``true``, produces a warning when the shader contains ``POSITION = vec4(vertex,`` as this was very common code written in Godot 4.2 and earlier that was paired with a QuadMesh to produce a full screen post processes pass. With the switch to reversed z in 4.3, this trick no longer works, as it implicitly relied on the ``VERTEX.z`` being 0.
 
 .. rst-class:: classref-item-separator
 
@@ -4436,7 +4488,7 @@ It is possible to make another executable run Godot by using the ``%command%`` p
 
 For example, this can be used to force the project to run on the dedicated GPU in an NVIDIA Optimus system on Linux:
 
-::
+.. code:: text
 
     prime-run %command%
 
@@ -4451,6 +4503,8 @@ For example, this can be used to force the project to run on the dedicated GPU i
 :ref:`PackedStringArray<class_PackedStringArray>` **editor/script/search_in_file_extensions** = ``PackedStringArray("gd", "gdshader")``
 
 Text-based file extensions to include in the script editor's "Find in Files" feature. You can add e.g. ``tscn`` if you wish to also parse your scene files, especially if you use built-in scripts which are serialized in the scene files.
+
+**Note:** The returned array is *copied* and any changes to it will not update the original property value. See :ref:`PackedStringArray<class_PackedStringArray>` for more details.
 
 .. rst-class:: classref-item-separator
 
@@ -6139,6 +6193,20 @@ If ``true``, enables pseudolocalization for the project. This can be used to spo
 :ref:`bool<class_bool>` **internationalization/rendering/force_right_to_left_layout_direction** = ``false``
 
 Force layout direction and text writing direction to RTL for all controls.
+
+.. rst-class:: classref-item-separator
+
+----
+
+.. _class_ProjectSettings_property_internationalization/rendering/root_node_auto_translate:
+
+.. rst-class:: classref-property
+
+:ref:`bool<class_bool>` **internationalization/rendering/root_node_auto_translate** = ``true``
+
+If ``true``, root node will use :ref:`Node.AUTO_TRANSLATE_MODE_ALWAYS<class_Node_constant_AUTO_TRANSLATE_MODE_ALWAYS>`, otherwise :ref:`Node.AUTO_TRANSLATE_MODE_DISABLED<class_Node_constant_AUTO_TRANSLATE_MODE_DISABLED>` will be used.
+
+\ **Note:** This property is only read when the project starts. To change the auto translate mode at runtime, set :ref:`Node.auto_translate_mode<class_Node_property_auto_translate_mode>` of :ref:`SceneTree.root<class_SceneTree_property_root>` instead.
 
 .. rst-class:: classref-item-separator
 
@@ -10728,6 +10796,18 @@ The `Bounding Volume Hierarchy <https://en.wikipedia.org/wiki/Bounding_volume_hi
 
 ----
 
+.. _class_ProjectSettings_property_rendering/occlusion_culling/jitter_projection:
+
+.. rst-class:: classref-property
+
+:ref:`bool<class_bool>` **rendering/occlusion_culling/jitter_projection** = ``true``
+
+If ``true``, the projection used for rendering the occlusion buffer will be jittered. This can help prevent objects being incorrectly culled when visible through small gaps.
+
+.. rst-class:: classref-item-separator
+
+----
+
 .. _class_ProjectSettings_property_rendering/occlusion_culling/occlusion_rays_per_thread:
 
 .. rst-class:: classref-property
@@ -11029,6 +11109,20 @@ macOS override for :ref:`rendering/rendering_device/driver<class_ProjectSettings
 :ref:`String<class_String>` **rendering/rendering_device/driver.windows**
 
 Windows override for :ref:`rendering/rendering_device/driver<class_ProjectSettings_property_rendering/rendering_device/driver>`.
+
+.. rst-class:: classref-item-separator
+
+----
+
+.. _class_ProjectSettings_property_rendering/rendering_device/pipeline_cache/enable:
+
+.. rst-class:: classref-property
+
+:ref:`bool<class_bool>` **rendering/rendering_device/pipeline_cache/enable** = ``true``
+
+Enable the pipeline cache that is saved to disk if the graphics API supports it.
+
+\ **Note:** This property is unable to control the pipeline caching the GPU driver itself does. Only turn this off along with deleting the contents of the driver's cache if you wish to simulate the experience a user will get when starting the game for the first time.
 
 .. rst-class:: classref-item-separator
 
@@ -11512,7 +11606,7 @@ If :ref:`rendering/vrs/mode<class_ProjectSettings_property_rendering/vrs/mode>` 
 
 The texture *must* use a lossless compression format so that colors can be matched precisely. The following VRS densities are mapped to various colors, with brighter colors representing a lower level of shading precision:
 
-::
+.. code:: text
 
     - 1×1 = rgb(0, 0, 0)     - #000000
     - 1×2 = rgb(0, 85, 0)    - #005500
