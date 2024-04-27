@@ -73,7 +73,7 @@ Properties
    +---------------------------------------------------------------------+----------------------------------------------------------------------------------------------+-------------------------------------------------------------------------------+
    | :ref:`float<class_float>`                                           | :ref:`anchor_top<class_Control_property_anchor_top>`                                         | ``0.0``                                                                       |
    +---------------------------------------------------------------------+----------------------------------------------------------------------------------------------+-------------------------------------------------------------------------------+
-   | :ref:`bool<class_bool>`                                             | :ref:`auto_translate<class_Control_property_auto_translate>`                                 | ``true``                                                                      |
+   | :ref:`bool<class_bool>`                                             | :ref:`auto_translate<class_Control_property_auto_translate>`                                 |                                                                               |
    +---------------------------------------------------------------------+----------------------------------------------------------------------------------------------+-------------------------------------------------------------------------------+
    | :ref:`bool<class_bool>`                                             | :ref:`clip_contents<class_Control_property_clip_contents>`                                   | ``false``                                                                     |
    +---------------------------------------------------------------------+----------------------------------------------------------------------------------------------+-------------------------------------------------------------------------------+
@@ -1276,7 +1276,7 @@ Anchors the top edge of the node to the origin, the center or the end of its par
 
 .. rst-class:: classref-property
 
-:ref:`bool<class_bool>` **auto_translate** = ``true``
+:ref:`bool<class_bool>` **auto_translate**
 
 .. rst-class:: classref-property-setget
 
@@ -1319,7 +1319,7 @@ Enables whether rendering of :ref:`CanvasItem<class_CanvasItem>` based children 
 - |void| **set_custom_minimum_size**\ (\ value\: :ref:`Vector2<class_Vector2>`\ )
 - :ref:`Vector2<class_Vector2>` **get_custom_minimum_size**\ (\ )
 
-The minimum size of the node's bounding rectangle. If you set it to a value greater than (0, 0), the node's bounding rectangle will always have at least this size, even if its content is smaller. If it's set to (0, 0), the node sizes automatically to fit its content, be it a texture or child nodes.
+The minimum size of the node's bounding rectangle. If you set it to a value greater than ``(0, 0)``, the node's bounding rectangle will always have at least this size. Note that **Control** nodes have their internal minimum size returned by :ref:`get_minimum_size<class_Control_method_get_minimum_size>`. It depends on the control's contents, like text, textures, or style boxes. The actual minimum size is the maximum value of this property and the internal minimum size (see :ref:`get_combined_minimum_size<class_Control_method_get_combined_minimum_size>`).
 
 .. rst-class:: classref-item-separator
 

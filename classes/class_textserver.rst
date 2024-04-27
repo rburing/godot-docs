@@ -394,7 +394,7 @@ Methods
    +------------------------------------------------------------------+-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
    | :ref:`float<class_float>`                                        | :ref:`shaped_text_get_width<class_TextServer_method_shaped_text_get_width>`\ (\ shaped\: :ref:`RID<class_RID>`\ ) |const|                                                                                                                                                                                                                                                                                 |
    +------------------------------------------------------------------+-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
-   | :ref:`PackedInt32Array<class_PackedInt32Array>`                  | :ref:`shaped_text_get_word_breaks<class_TextServer_method_shaped_text_get_word_breaks>`\ (\ shaped\: :ref:`RID<class_RID>`, grapheme_flags\: |bitfield|\[:ref:`GraphemeFlag<enum_TextServer_GraphemeFlag>`\] = 264\ ) |const|                                                                                                                                                                             |
+   | :ref:`PackedInt32Array<class_PackedInt32Array>`                  | :ref:`shaped_text_get_word_breaks<class_TextServer_method_shaped_text_get_word_breaks>`\ (\ shaped\: :ref:`RID<class_RID>`, grapheme_flags\: |bitfield|\[:ref:`GraphemeFlag<enum_TextServer_GraphemeFlag>`\] = 264, skip_grapheme_flags\: |bitfield|\[:ref:`GraphemeFlag<enum_TextServer_GraphemeFlag>`\] = 4\ ) |const|                                                                                  |
    +------------------------------------------------------------------+-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
    | :ref:`bool<class_bool>`                                          | :ref:`shaped_text_has_visible_chars<class_TextServer_method_shaped_text_has_visible_chars>`\ (\ shaped\: :ref:`RID<class_RID>`\ ) |const|                                                                                                                                                                                                                                                                 |
    +------------------------------------------------------------------+-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
@@ -447,6 +447,8 @@ Methods
    | :ref:`PackedInt32Array<class_PackedInt32Array>`                  | :ref:`string_get_word_breaks<class_TextServer_method_string_get_word_breaks>`\ (\ string\: :ref:`String<class_String>`, language\: :ref:`String<class_String>` = "", chars_per_line\: :ref:`int<class_int>` = 0\ ) |const|                                                                                                                                                                                |
    +------------------------------------------------------------------+-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
    | :ref:`String<class_String>`                                      | :ref:`string_to_lower<class_TextServer_method_string_to_lower>`\ (\ string\: :ref:`String<class_String>`, language\: :ref:`String<class_String>` = ""\ ) |const|                                                                                                                                                                                                                                          |
+   +------------------------------------------------------------------+-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+   | :ref:`String<class_String>`                                      | :ref:`string_to_title<class_TextServer_method_string_to_title>`\ (\ string\: :ref:`String<class_String>`, language\: :ref:`String<class_String>` = ""\ ) |const|                                                                                                                                                                                                                                          |
    +------------------------------------------------------------------+-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
    | :ref:`String<class_String>`                                      | :ref:`string_to_upper<class_TextServer_method_string_to_upper>`\ (\ string\: :ref:`String<class_String>`, language\: :ref:`String<class_String>` = ""\ ) |const|                                                                                                                                                                                                                                          |
    +------------------------------------------------------------------+-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
@@ -3807,7 +3809,7 @@ Returns width (for horizontal layout) or height (for vertical) of the text.
 
 .. rst-class:: classref-method
 
-:ref:`PackedInt32Array<class_PackedInt32Array>` **shaped_text_get_word_breaks**\ (\ shaped\: :ref:`RID<class_RID>`, grapheme_flags\: |bitfield|\[:ref:`GraphemeFlag<enum_TextServer_GraphemeFlag>`\] = 264\ ) |const|
+:ref:`PackedInt32Array<class_PackedInt32Array>` **shaped_text_get_word_breaks**\ (\ shaped\: :ref:`RID<class_RID>`, grapheme_flags\: |bitfield|\[:ref:`GraphemeFlag<enum_TextServer_GraphemeFlag>`\] = 264, skip_grapheme_flags\: |bitfield|\[:ref:`GraphemeFlag<enum_TextServer_GraphemeFlag>`\] = 4\ ) |const|
 
 Breaks text into words and returns array of character ranges. Use ``grapheme_flags`` to set what characters are used for breaking (see :ref:`GraphemeFlag<enum_TextServer_GraphemeFlag>`).
 
@@ -4145,6 +4147,22 @@ When ``chars_per_line`` is greater than zero, line break boundaries are returned
 :ref:`String<class_String>` **string_to_lower**\ (\ string\: :ref:`String<class_String>`, language\: :ref:`String<class_String>` = ""\ ) |const|
 
 Returns the string converted to lowercase.
+
+\ **Note:** Casing is locale dependent and context sensitive if server support :ref:`FEATURE_CONTEXT_SENSITIVE_CASE_CONVERSION<class_TextServer_constant_FEATURE_CONTEXT_SENSITIVE_CASE_CONVERSION>` feature (supported by :ref:`TextServerAdvanced<class_TextServerAdvanced>`).
+
+\ **Note:** The result may be longer or shorter than the original.
+
+.. rst-class:: classref-item-separator
+
+----
+
+.. _class_TextServer_method_string_to_title:
+
+.. rst-class:: classref-method
+
+:ref:`String<class_String>` **string_to_title**\ (\ string\: :ref:`String<class_String>`, language\: :ref:`String<class_String>` = ""\ ) |const|
+
+Returns the string converted to title case.
 
 \ **Note:** Casing is locale dependent and context sensitive if server support :ref:`FEATURE_CONTEXT_SENSITIVE_CASE_CONVERSION<class_TextServer_constant_FEATURE_CONTEXT_SENSITIVE_CASE_CONVERSION>` feature (supported by :ref:`TextServerAdvanced<class_TextServerAdvanced>`).
 
