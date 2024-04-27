@@ -28,7 +28,7 @@ The **OS** class wraps the most common functionalities for communicating with th
 Tutorials
 ---------
 
-- `OS Test Demo <https://godotengine.org/asset-library/asset/677>`__
+- `Operating System Testing Demo <https://godotengine.org/asset-library/asset/2789>`__
 
 .. rst-class:: classref-reftable-group
 
@@ -108,6 +108,8 @@ Methods
    | :ref:`String<class_String>`                       | :ref:`get_model_name<class_OS_method_get_model_name>`\ (\ ) |const|                                                                                                                                                                                                                                                                                                                         |
    +---------------------------------------------------+---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
    | :ref:`String<class_String>`                       | :ref:`get_name<class_OS_method_get_name>`\ (\ ) |const|                                                                                                                                                                                                                                                                                                                                     |
+   +---------------------------------------------------+---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+   | :ref:`int<class_int>`                             | :ref:`get_process_exit_code<class_OS_method_get_process_exit_code>`\ (\ pid\: :ref:`int<class_int>`\ ) |const|                                                                                                                                                                                                                                                                              |
    +---------------------------------------------------+---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
    | :ref:`int<class_int>`                             | :ref:`get_process_id<class_OS_method_get_process_id>`\ (\ ) |const|                                                                                                                                                                                                                                                                                                                         |
    +---------------------------------------------------+---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
@@ -667,27 +669,27 @@ Here's a minimal example on how to parse command-line arguments into a :ref:`Dic
     for argument in OS.get_cmdline_args():
         if argument.contains("="):
             var key_value = argument.split("=")
-            arguments[key_value[0].lstrip("--")] = key_value[1]
+            arguments[key_value[0].trim_prefix("--")] = key_value[1]
         else:
             # Options without an argument will be present in the dictionary,
             # with the value set to an empty string.
-            arguments[argument.lstrip("--")] = ""
+            arguments[argument.trim_prefix("--")] = ""
 
  .. code-tab:: csharp
 
-    var arguments = new Godot.Collections.Dictionary();
+    var arguments = new Dictionary<string, string>();
     foreach (var argument in OS.GetCmdlineArgs())
     {
         if (argument.Contains('='))
         {
             string[] keyValue = argument.Split("=");
-            arguments[keyValue[0].LStrip("--")] = keyValue[1];
+            arguments[keyValue[0].TrimPrefix("--")] = keyValue[1];
         }
         else
         {
             // Options without an argument will be present in the dictionary,
             // with the value set to an empty string.
-            arguments[keyValue[0].LStrip("--")] = "";
+            arguments[argument.TrimPrefix("--")] = "";
         }
     }
 
@@ -1027,6 +1029,22 @@ Returns the name of the host platform.
 
 ----
 
+.. _class_OS_method_get_process_exit_code:
+
+.. rst-class:: classref-method
+
+:ref:`int<class_int>` **get_process_exit_code**\ (\ pid\: :ref:`int<class_int>`\ ) |const|
+
+Returns the exit code of a spawned process once it has finished running (see :ref:`is_process_running<class_OS_method_is_process_running>`).
+
+Returns ``-1`` if the ``pid`` is not a PID of a spawned child process, the process is still running, or the method is not implemented for the current platform.
+
+\ **Note:** This method is implemented on Android, Linux, macOS and Windows.
+
+.. rst-class:: classref-item-separator
+
+----
+
 .. _class_OS_method_get_process_id:
 
 .. rst-class:: classref-method
@@ -1035,7 +1053,7 @@ Returns the name of the host platform.
 
 Returns the number used by the host machine to uniquely identify this application.
 
-\ **Note:** This method is implemented on Android, iOS, Linux, macOS and Windows.
+\ **Note:** This method is implemented on Android, iOS, Linux, macOS, and Windows.
 
 .. rst-class:: classref-item-separator
 
@@ -1352,7 +1370,7 @@ Returns ``true`` if the input keycode corresponds to a Unicode character. For a 
 
 Returns ``true`` if the child process ID (``pid``) is still running or ``false`` if it has terminated. ``pid`` must be a valid ID generated from :ref:`create_process<class_OS_method_create_process>`.
 
-\ **Note:** This method is implemented on Android, iOS, Linux, macOS and Windows.
+\ **Note:** This method is implemented on Android, iOS, Linux, macOS, and Windows.
 
 .. rst-class:: classref-item-separator
 

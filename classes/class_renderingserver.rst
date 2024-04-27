@@ -921,6 +921,8 @@ Methods
    +----------------------------------------------------------------------------------+---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
    | :ref:`RID<class_RID>`                                                            | :ref:`viewport_get_texture<class_RenderingServer_method_viewport_get_texture>`\ (\ viewport\: :ref:`RID<class_RID>`\ ) |const|                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                          |
    +----------------------------------------------------------------------------------+---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+   | :ref:`ViewportUpdateMode<enum_RenderingServer_ViewportUpdateMode>`               | :ref:`viewport_get_update_mode<class_RenderingServer_method_viewport_get_update_mode>`\ (\ viewport\: :ref:`RID<class_RID>`\ ) |const|                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                  |
+   +----------------------------------------------------------------------------------+---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
    | |void|                                                                           | :ref:`viewport_remove_canvas<class_RenderingServer_method_viewport_remove_canvas>`\ (\ viewport\: :ref:`RID<class_RID>`, canvas\: :ref:`RID<class_RID>`\ )                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                              |
    +----------------------------------------------------------------------------------+---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
    | |void|                                                                           | :ref:`viewport_set_active<class_RenderingServer_method_viewport_set_active>`\ (\ viewport\: :ref:`RID<class_RID>`, active\: :ref:`bool<class_bool>`\ )                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                  |
@@ -5834,15 +5836,15 @@ The normalization factor can be calculated from exposure value (EV100) as follow
 
 ::
 
-    func get_exposure_normalization(float ev100):
-        			    return 1.0 / (pow(2.0, ev100) * 1.2)
+    func get_exposure_normalization(ev100: float):
+        return 1.0 / (pow(2.0, ev100) * 1.2)
 
 The exposure value can be calculated from aperture (in f-stops), shutter speed (in seconds), and sensitivity (in ISO) as follows:
 
 ::
 
-    func get_exposure(float aperture, float shutter_speed, float sensitivity):
-        return log2((aperture * aperture) / shutterSpeed * (100.0 / sensitivity))
+    func get_exposure(aperture: float, shutter_speed: float, sensitivity: float):
+        return log((aperture * aperture) / shutter_speed * (100.0 / sensitivity)) / log(2)
 
 .. rst-class:: classref-item-separator
 
@@ -8490,7 +8492,7 @@ Sets the override material of a specific surface. Equivalent to :ref:`MeshInstan
 
 |void| **instance_set_transform**\ (\ instance\: :ref:`RID<class_RID>`, transform\: :ref:`Transform3D<class_Transform3D>`\ )
 
-Sets the world space transform of the instance. Equivalent to :ref:`Node3D.transform<class_Node3D_property_transform>`.
+Sets the world space transform of the instance. Equivalent to :ref:`Node3D.global_transform<class_Node3D_property_global_transform>`.
 
 .. rst-class:: classref-item-separator
 
@@ -9516,7 +9518,7 @@ Set the entire data to use for drawing the ``multimesh`` at once to ``buffer`` (
 
 The per-instance data size and expected data order is:
 
-::
+.. code:: text
 
     2D:
       - Position: 8 floats (8 floats for Transform2D)
@@ -11267,6 +11269,20 @@ Returns the render target for the viewport.
 :ref:`RID<class_RID>` **viewport_get_texture**\ (\ viewport\: :ref:`RID<class_RID>`\ ) |const|
 
 Returns the viewport's last rendered frame.
+
+.. rst-class:: classref-item-separator
+
+----
+
+.. _class_RenderingServer_method_viewport_get_update_mode:
+
+.. rst-class:: classref-method
+
+:ref:`ViewportUpdateMode<enum_RenderingServer_ViewportUpdateMode>` **viewport_get_update_mode**\ (\ viewport\: :ref:`RID<class_RID>`\ ) |const|
+
+Returns the viewport's update mode. See :ref:`ViewportUpdateMode<enum_RenderingServer_ViewportUpdateMode>` constants for options.
+
+\ **Warning:** Calling this from any thread other than the rendering thread will be detrimental to performance.
 
 .. rst-class:: classref-item-separator
 

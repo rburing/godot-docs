@@ -179,6 +179,8 @@ Properties
    +---------------------------------------------------+-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
    | :ref:`Color<class_Color>`                         | :ref:`editors/3d/selection_box_color<class_EditorSettings_property_editors/3d/selection_box_color>`                                                                                                               |
    +---------------------------------------------------+-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+   | :ref:`Color<class_Color>`                         | :ref:`editors/3d_gizmos/gizmo_colors/aabb<class_EditorSettings_property_editors/3d_gizmos/gizmo_colors/aabb>`                                                                                                     |
+   +---------------------------------------------------+-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
    | :ref:`Color<class_Color>`                         | :ref:`editors/3d_gizmos/gizmo_colors/instantiated<class_EditorSettings_property_editors/3d_gizmos/gizmo_colors/instantiated>`                                                                                     |
    +---------------------------------------------------+-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
    | :ref:`Color<class_Color>`                         | :ref:`editors/3d_gizmos/gizmo_colors/joint<class_EditorSettings_property_editors/3d_gizmos/gizmo_colors/joint>`                                                                                                   |
@@ -220,6 +222,8 @@ Properties
    | :ref:`bool<class_bool>`                           | :ref:`editors/tiles_editor/display_grid<class_EditorSettings_property_editors/tiles_editor/display_grid>`                                                                                                         |
    +---------------------------------------------------+-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
    | :ref:`Color<class_Color>`                         | :ref:`editors/tiles_editor/grid_color<class_EditorSettings_property_editors/tiles_editor/grid_color>`                                                                                                             |
+   +---------------------------------------------------+-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+   | :ref:`bool<class_bool>`                           | :ref:`editors/tiles_editor/highlight_selected_layer<class_EditorSettings_property_editors/tiles_editor/highlight_selected_layer>`                                                                                 |
    +---------------------------------------------------+-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
    | :ref:`Color<class_Color>`                         | :ref:`editors/visual_editors/category_colors/color_color<class_EditorSettings_property_editors/visual_editors/category_colors/color_color>`                                                                       |
    +---------------------------------------------------+-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
@@ -335,6 +339,8 @@ Properties
    +---------------------------------------------------+-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
    | :ref:`int<class_int>`                             | :ref:`interface/editor/font_subpixel_positioning<class_EditorSettings_property_interface/editor/font_subpixel_positioning>`                                                                                       |
    +---------------------------------------------------+-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+   | :ref:`bool<class_bool>`                           | :ref:`interface/editor/import_resources_when_unfocused<class_EditorSettings_property_interface/editor/import_resources_when_unfocused>`                                                                           |
+   +---------------------------------------------------+-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
    | :ref:`bool<class_bool>`                           | :ref:`interface/editor/localize_settings<class_EditorSettings_property_interface/editor/localize_settings>`                                                                                                       |
    +---------------------------------------------------+-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
    | :ref:`int<class_int>`                             | :ref:`interface/editor/low_processor_mode_sleep_usec<class_EditorSettings_property_interface/editor/low_processor_mode_sleep_usec>`                                                                               |
@@ -368,6 +374,8 @@ Properties
    | :ref:`bool<class_bool>`                           | :ref:`interface/editor/update_continuously<class_EditorSettings_property_interface/editor/update_continuously>`                                                                                                   |
    +---------------------------------------------------+-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
    | :ref:`bool<class_bool>`                           | :ref:`interface/editor/use_embedded_menu<class_EditorSettings_property_interface/editor/use_embedded_menu>`                                                                                                       |
+   +---------------------------------------------------+-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+   | :ref:`bool<class_bool>`                           | :ref:`interface/editor/use_native_file_dialogs<class_EditorSettings_property_interface/editor/use_native_file_dialogs>`                                                                                           |
    +---------------------------------------------------+-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
    | :ref:`int<class_int>`                             | :ref:`interface/editor/vsync_mode<class_EditorSettings_property_interface/editor/vsync_mode>`                                                                                                                     |
    +---------------------------------------------------+-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
@@ -452,6 +460,8 @@ Properties
    | :ref:`bool<class_bool>`                           | :ref:`interface/touchscreen/increase_scrollbar_touch_area<class_EditorSettings_property_interface/touchscreen/increase_scrollbar_touch_area>`                                                                     |
    +---------------------------------------------------+-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
    | :ref:`float<class_float>`                         | :ref:`interface/touchscreen/scale_gizmo_handles<class_EditorSettings_property_interface/touchscreen/scale_gizmo_handles>`                                                                                         |
+   +---------------------------------------------------+-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+   | :ref:`int<class_int>`                             | :ref:`network/connection/engine_version_update_mode<class_EditorSettings_property_network/connection/engine_version_update_mode>`                                                                                 |
    +---------------------------------------------------+-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
    | :ref:`int<class_int>`                             | :ref:`network/connection/network_mode<class_EditorSettings_property_network/connection/network_mode>`                                                                                                             |
    +---------------------------------------------------+-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
@@ -1527,6 +1537,18 @@ The color to use for the selection box that surrounds selected nodes in the 3D e
 
 ----
 
+.. _class_EditorSettings_property_editors/3d_gizmos/gizmo_colors/aabb:
+
+.. rst-class:: classref-property
+
+:ref:`Color<class_Color>` **editors/3d_gizmos/gizmo_colors/aabb**
+
+The color to use for the AABB gizmo that displays the :ref:`GeometryInstance3D<class_GeometryInstance3D>`'s custom :ref:`AABB<class_AABB>`.
+
+.. rst-class:: classref-item-separator
+
+----
+
 .. _class_EditorSettings_property_editors/3d_gizmos/gizmo_colors/instantiated:
 
 .. rst-class:: classref-property
@@ -1776,6 +1798,18 @@ If ``true``, displays a grid while the TileMap editor is active. See also :ref:`
 The color to use for the TileMap editor's grid.
 
 \ **Note:** Only effective if :ref:`editors/tiles_editor/display_grid<class_EditorSettings_property_editors/tiles_editor/display_grid>` is ``true``.
+
+.. rst-class:: classref-item-separator
+
+----
+
+.. _class_EditorSettings_property_editors/tiles_editor/highlight_selected_layer:
+
+.. rst-class:: classref-property
+
+:ref:`bool<class_bool>` **editors/tiles_editor/highlight_selected_layer**
+
+Highlight the currently selected TileMapLayer by dimming the other ones in the scene.
 
 .. rst-class:: classref-item-separator
 
@@ -2533,6 +2567,18 @@ The subpixel positioning mode to use when rendering editor font glyphs. This aff
 
 ----
 
+.. _class_EditorSettings_property_interface/editor/import_resources_when_unfocused:
+
+.. rst-class:: classref-property
+
+:ref:`bool<class_bool>` **interface/editor/import_resources_when_unfocused**
+
+If ``true``, (re)imports resources even if the editor window is unfocused or minimized. If ``false``, resources are only (re)imported when the editor window is focused. This can be set to ``true`` to speed up iteration by starting the import process earlier when saving files in the project folder. This also allows getting visual feedback on changes without having to click the editor window, which is useful with multi-monitor setups. The downside of setting this to ``true`` is that it increases idle CPU usage and may steal CPU time from other applications when importing resources.
+
+.. rst-class:: classref-item-separator
+
+----
+
 .. _class_EditorSettings_property_interface/editor/localize_settings:
 
 .. rst-class:: classref-property
@@ -2757,6 +2803,18 @@ Specific to the macOS platform.
 
 ----
 
+.. _class_EditorSettings_property_interface/editor/use_native_file_dialogs:
+
+.. rst-class:: classref-property
+
+:ref:`bool<class_bool>` **interface/editor/use_native_file_dialogs**
+
+If ``true``, editor UI uses OS native file/directory selection dialogs.
+
+.. rst-class:: classref-item-separator
+
+----
+
 .. _class_EditorSettings_property_interface/editor/vsync_mode:
 
 .. rst-class:: classref-property
@@ -2920,6 +2978,8 @@ If ``true``, subresources can be edited in the current inspector view. If the re
 :ref:`PackedStringArray<class_PackedStringArray>` **interface/inspector/resources_to_open_in_new_inspector**
 
 List of resources that should always be opened in a new inspector view, even if :ref:`interface/inspector/open_resources_in_current_inspector<class_EditorSettings_property_interface/inspector/open_resources_in_current_inspector>` is ``true``.
+
+**Note:** The returned array is *copied* and any changes to it will not update the original property value. See :ref:`PackedStringArray<class_PackedStringArray>` for more details.
 
 .. rst-class:: classref-item-separator
 
@@ -3173,7 +3233,7 @@ The icon and font color scheme to use in the editor.
 
 - **Auto** determines the color scheme to use automatically based on :ref:`interface/theme/base_color<class_EditorSettings_property_interface/theme/base_color>`.
 
-- **Dark** makes fonts and icons dark (suitable for light themes). Icon colors are automatically converted by the editor following the set of rules defined in `this file <https://github.com/godotengine/godot/blob/master/editor/editor_themes.cpp>`__.
+- **Dark** makes fonts and icons dark (suitable for light themes). Icon colors are automatically converted by the editor following the set of rules defined in `this file <https://github.com/godotengine/godot/blob/master/editor/themes/editor_theme_manager.cpp>`__.
 
 - **Light** makes fonts and icons light (suitable for dark themes).
 
@@ -3301,13 +3361,35 @@ Specify the multiplier to apply to the scale for the editor gizmo handles to imp
 
 ----
 
+.. _class_EditorSettings_property_network/connection/engine_version_update_mode:
+
+.. rst-class:: classref-property
+
+:ref:`int<class_int>` **network/connection/engine_version_update_mode**
+
+Specifies how the engine should check for updates.
+
+- **Disable Update Checks** will block the engine from checking updates (see also :ref:`network/connection/network_mode<class_EditorSettings_property_network/connection/network_mode>`).
+
+- **Check Newest Preview** (default for preview versions) will check for the newest available development snapshot.
+
+- **Check Newest Stable** (default for stable versions) will check for the newest available stable version.
+
+- **Check Newest Patch** will check for the latest available stable version, but only within the same minor version. E.g. if your version is ``4.3.stable``, you will be notified about ``4.3.1.stable``, but not ``4.4.stable``.
+
+All update modes will ignore builds with different major versions (e.g. Godot 4 -> Godot 5).
+
+.. rst-class:: classref-item-separator
+
+----
+
 .. _class_EditorSettings_property_network/connection/network_mode:
 
 .. rst-class:: classref-property
 
 :ref:`int<class_int>` **network/connection/network_mode**
 
-Determines whether online features are enabled in the editor, such as the Asset Library. Setting this property to "Offline" is recommended to limit editor's internet activity, especially if privacy is a concern.
+Determines whether online features are enabled in the editor, such as the Asset Library or update checks. Disabling these online features helps alleviate privacy concerns by preventing the editor from making HTTP requests to the Godot website, GitHub, or third-party platforms hosting assets from the Asset Library.
 
 .. rst-class:: classref-item-separator
 
