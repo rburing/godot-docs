@@ -47,6 +47,10 @@ Properties
    +---------------------------+----------------------------------------------------------------------------------------------------+-----------+
    | :ref:`float<class_float>` | :ref:`render_target_size_multiplier<class_OpenXRInterface_property_render_target_size_multiplier>` | ``1.0``   |
    +---------------------------+----------------------------------------------------------------------------------------------------+-----------+
+   | :ref:`float<class_float>` | :ref:`vrs_min_radius<class_OpenXRInterface_property_vrs_min_radius>`                               | ``20.0``  |
+   +---------------------------+----------------------------------------------------------------------------------------------------+-----------+
+   | :ref:`float<class_float>` | :ref:`vrs_strength<class_OpenXRInterface_property_vrs_strength>`                                   | ``1.0``   |
+   +---------------------------+----------------------------------------------------------------------------------------------------+-----------+
 
 .. rst-class:: classref-reftable-group
 
@@ -83,6 +87,8 @@ Methods
    +--------------------------------------------------------------------------+-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
    | :ref:`bool<class_bool>`                                                  | :ref:`is_foveation_supported<class_OpenXRInterface_method_is_foveation_supported>`\ (\ ) |const|                                                                                                                              |
    +--------------------------------------------------------------------------+-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+   | :ref:`bool<class_bool>`                                                  | :ref:`is_hand_interaction_supported<class_OpenXRInterface_method_is_hand_interaction_supported>`\ (\ ) |const|                                                                                                                |
+   +--------------------------------------------------------------------------+-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
    | :ref:`bool<class_bool>`                                                  | :ref:`is_hand_tracking_supported<class_OpenXRInterface_method_is_hand_tracking_supported>`\ (\ )                                                                                                                              |
    +--------------------------------------------------------------------------+-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
    | |void|                                                                   | :ref:`set_action_set_active<class_OpenXRInterface_method_set_action_set_active>`\ (\ name\: :ref:`String<class_String>`, active\: :ref:`bool<class_bool>`\ )                                                                  |
@@ -98,6 +104,18 @@ Methods
 
 Signals
 -------
+
+.. _class_OpenXRInterface_signal_instance_exiting:
+
+.. rst-class:: classref-signal
+
+**instance_exiting**\ (\ )
+
+Informs our OpenXR instance is exiting.
+
+.. rst-class:: classref-item-separator
+
+----
 
 .. _class_OpenXRInterface_signal_pose_recentered:
 
@@ -144,6 +162,18 @@ Informs our OpenXR session has been started.
 **session_focussed**\ (\ )
 
 Informs our OpenXR session now has focus.
+
+.. rst-class:: classref-item-separator
+
+----
+
+.. _class_OpenXRInterface_signal_session_loss_pending:
+
+.. rst-class:: classref-signal
+
+**session_loss_pending**\ (\ )
+
+Informs our OpenXR session is in the process of being lost.
 
 .. rst-class:: classref-item-separator
 
@@ -653,6 +683,44 @@ Set foveation level from 0 (off) to 3 (high), the interface must be initialized 
 
 The render size multiplier for the current HMD. Must be set before the interface has been initialized.
 
+.. rst-class:: classref-item-separator
+
+----
+
+.. _class_OpenXRInterface_property_vrs_min_radius:
+
+.. rst-class:: classref-property
+
+:ref:`float<class_float>` **vrs_min_radius** = ``20.0``
+
+.. rst-class:: classref-property-setget
+
+- |void| **set_vrs_min_radius**\ (\ value\: :ref:`float<class_float>`\ )
+- :ref:`float<class_float>` **get_vrs_min_radius**\ (\ )
+
+The minimum radius around the focal point where full quality is guaranteed if VRS is used as a percentage of screen size.
+
+\ **Note:** Mobile and Forward+ renderers only. Requires :ref:`Viewport.vrs_mode<class_Viewport_property_vrs_mode>` to be set to :ref:`Viewport.VRS_XR<class_Viewport_constant_VRS_XR>`.
+
+.. rst-class:: classref-item-separator
+
+----
+
+.. _class_OpenXRInterface_property_vrs_strength:
+
+.. rst-class:: classref-property
+
+:ref:`float<class_float>` **vrs_strength** = ``1.0``
+
+.. rst-class:: classref-property-setget
+
+- |void| **set_vrs_strength**\ (\ value\: :ref:`float<class_float>`\ )
+- :ref:`float<class_float>` **get_vrs_strength**\ (\ )
+
+The strength used to calculate the VRS density map. The greater this value, the more noticeable VRS is. This improves performance at the cost of quality.
+
+\ **Note:** Mobile and Forward+ renderers only. Requires :ref:`Viewport.vrs_mode<class_Viewport_property_vrs_mode>` to be set to :ref:`Viewport.VRS_XR<class_Viewport_constant_VRS_XR>`.
+
 .. rst-class:: classref-section-separator
 
 ----
@@ -831,6 +899,20 @@ Returns the capabilities of the eye gaze interaction extension.
 Returns ``true`` if OpenXR's foveation extension is supported, the interface must be initialized before this returns a valid value.
 
 \ **Note:** This feature is only available on the compatibility renderer and currently only available on some stand alone headsets. For Vulkan set :ref:`Viewport.vrs_mode<class_Viewport_property_vrs_mode>` to ``VRS_XR`` on desktop.
+
+.. rst-class:: classref-item-separator
+
+----
+
+.. _class_OpenXRInterface_method_is_hand_interaction_supported:
+
+.. rst-class:: classref-method
+
+:ref:`bool<class_bool>` **is_hand_interaction_supported**\ (\ ) |const|
+
+Returns ``true`` if OpenXR's hand interaction profile is supported and enabled.
+
+\ **Note:** This only returns a valid value after OpenXR has been initialized.
 
 .. rst-class:: classref-item-separator
 
