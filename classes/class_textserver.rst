@@ -23,6 +23,23 @@ Description
 
 **TextServer** is the API backend for managing fonts and rendering text.
 
+\ **Note:** This is a low-level API, consider using :ref:`TextLine<class_TextLine>`, :ref:`TextParagraph<class_TextParagraph>`, and :ref:`Font<class_Font>` classes instead.
+
+This is an abstract class, so to get the currently active **TextServer** instance, use the following code:
+
+
+.. tabs::
+
+ .. code-tab:: gdscript
+
+    var ts = TextServerManager.get_primary_interface()
+
+ .. code-tab:: csharp
+
+    var ts = TextServerManager.GetPrimaryInterface();
+
+
+
 .. rst-class:: classref-reftable-group
 
 Methods
@@ -295,6 +312,8 @@ Methods
    | :ref:`bool<class_bool>`                                          | :ref:`is_locale_right_to_left<class_TextServer_method_is_locale_right_to_left>`\ (\ locale\: :ref:`String<class_String>`\ ) |const|                                                                                                                                                                                                                                                                       |
    +------------------------------------------------------------------+-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
    | :ref:`bool<class_bool>`                                          | :ref:`is_valid_identifier<class_TextServer_method_is_valid_identifier>`\ (\ string\: :ref:`String<class_String>`\ ) |const|                                                                                                                                                                                                                                                                               |
+   +------------------------------------------------------------------+-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+   | :ref:`bool<class_bool>`                                          | :ref:`is_valid_letter<class_TextServer_method_is_valid_letter>`\ (\ unicode\: :ref:`int<class_int>`\ ) |const|                                                                                                                                                                                                                                                                                            |
    +------------------------------------------------------------------+-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
    | :ref:`bool<class_bool>`                                          | :ref:`load_support_data<class_TextServer_method_load_support_data>`\ (\ filename\: :ref:`String<class_String>`\ )                                                                                                                                                                                                                                                                                         |
    +------------------------------------------------------------------+-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
@@ -3202,6 +3221,18 @@ If the :ref:`FEATURE_UNICODE_IDENTIFIERS<class_TextServer_constant_FEATURE_UNICO
 - Begin with a Unicode character of class XID_Start or ``"_"``.
 
 - May contain Unicode characters of class XID_Continue in the other positions.
+
+.. rst-class:: classref-item-separator
+
+----
+
+.. _class_TextServer_method_is_valid_letter:
+
+.. rst-class:: classref-method
+
+:ref:`bool<class_bool>` **is_valid_letter**\ (\ unicode\: :ref:`int<class_int>`\ ) |const|
+
+Returns ``true`` if the given code point is a valid letter, i.e. it belongs to the Unicode category "L".
 
 .. rst-class:: classref-item-separator
 
