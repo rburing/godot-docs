@@ -30,8 +30,6 @@ Tutorials
 
 - `Audio Spectrum Visualizer Demo <https://godotengine.org/asset-library/asset/2762>`__
 
-- `Godot 3.2 will get new audio features <https://godotengine.org/article/godot-32-will-get-new-audio-features>`__
-
 .. rst-class:: classref-reftable-group
 
 Properties
@@ -61,7 +59,7 @@ Enumerations
 
 .. rst-class:: classref-enumeration
 
-enum **FFTSize**:
+enum **FFTSize**: :ref:`🔗<enum_AudioEffectSpectrumAnalyzer_FFTSize>`
 
 .. _class_AudioEffectSpectrumAnalyzer_constant_FFT_SIZE_256:
 
@@ -124,7 +122,7 @@ Property Descriptions
 
 .. rst-class:: classref-property
 
-:ref:`float<class_float>` **buffer_length** = ``2.0``
+:ref:`float<class_float>` **buffer_length** = ``2.0`` :ref:`🔗<class_AudioEffectSpectrumAnalyzer_property_buffer_length>`
 
 .. rst-class:: classref-property-setget
 
@@ -141,7 +139,7 @@ The length of the buffer to keep (in seconds). Higher values keep data around fo
 
 .. rst-class:: classref-property
 
-:ref:`FFTSize<enum_AudioEffectSpectrumAnalyzer_FFTSize>` **fft_size** = ``2``
+:ref:`FFTSize<enum_AudioEffectSpectrumAnalyzer_FFTSize>` **fft_size** = ``2`` :ref:`🔗<class_AudioEffectSpectrumAnalyzer_property_fft_size>`
 
 .. rst-class:: classref-property-setget
 
@@ -158,7 +156,7 @@ The size of the `Fast Fourier transform <https://en.wikipedia.org/wiki/Fast_Four
 
 .. rst-class:: classref-property
 
-:ref:`float<class_float>` **tap_back_pos** = ``0.01``
+:ref:`float<class_float>` **tap_back_pos** = ``0.01`` :ref:`🔗<class_AudioEffectSpectrumAnalyzer_property_tap_back_pos>`
 
 .. rst-class:: classref-property-setget
 
